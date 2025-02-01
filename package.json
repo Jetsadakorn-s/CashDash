@@ -2,17 +2,24 @@
   "name": "cashdash",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "fastify start -w -l info -P app.js -p 4000 --host 127.0.0.1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/autoload": "^6.1.0",
+    "@fastify/cors": "^10.0.2",
     "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.3",
     "express": "^4.21.2",
-    "mongoose": "^8.9.6"
+    "fastify": "^5.2.1",
+    "fastify-cli": "^7.3.0",
+    "fastify-plugin": "^5.0.1",
+    "ioredis": "^5.4.2",
+    "mongoose": "^8.9.6",
+    "nodemon": "^3.1.9"
   }
 }
