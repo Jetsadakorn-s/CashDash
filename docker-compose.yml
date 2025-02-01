@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+
+  cash_dash_api:
+
+    container_name: cash_dash_api
+    build: .      
+
+    volumes:
+      - .:/home/backend
+
+    working_dir: /home/backend
+
+    ports:
+      - "4000:4000"
+
+    environment:
+      - NODE_ENV=development
+
+    depends_on:
+      - mongo_db
+
+
+  mongo_db:
+
+    container_name: mongo_db
+    image: mongo:8.0
+
+    ports:
+      - "27017:27017"
