@@ -27,8 +27,15 @@ module.exports = async function (fastify, opts) {
     'CONTROLLERS',
     require (path.join (__dirname, 'controllers'))
   )
-  
 
-  fastify.decorate ('MODELS', require ('./models'))
+
+  fastify.addHook ('onRequest', (request, reply, done) => {
+      
+    request [ 'MODELS' ]
+      = require (path.join (__dirname, 'database/models'))
+    
+    done ()
+  
+  })
   
 }

@@ -1,22 +1,23 @@
 'use strict'
 
+const User = require ('../../../database/models/_user')
 
 module.exports = async (request, reply) => {
 
   try {
 
-    // const user = await request.MODELS.BankAccount.findAll ({
-    //   where: { business_id: user.session.business_id }
-    // })
+    const { name, email, password, phone } = request.body
 
+    const user = new User({ name, email, password, phone })
+    await user.save()
 
-    // return reply.code (200).send (accounts)
+    return reply.code(201).send({ message: 'User created', user })
 
   } 
   
   
   catch (error) {
-    reply.code (500).send (error.reply ?? error)
+    return reply.code(500).send({ error: error.message })
   }
-
+  
 }
