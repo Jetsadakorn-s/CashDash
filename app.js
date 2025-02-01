@@ -4,7 +4,6 @@ const path = require ('path')
 
 const AutoLoad = require ('@fastify/autoload')
 
-const mongoose = require ('mongoose')
 const bcrypt = require ('bcrypt')
 
 
@@ -30,11 +29,6 @@ module.exports = async function (fastify, opts) {
   )
   
 
-  // fastify.decorate ('MODELS', require ('./models'))
-
+  fastify.decorate ('MODELS', require ('./models'))
   
-  mongoose.connect ('mongodb://mongo_db/cashDash')
-  .then (() => console.log ('MongoDB connected'))
-  .catch (err => console.error ('MongoDB connection error:', err))
-
 }
