@@ -28,5 +28,16 @@ module.exports = async function (fastify, opts) {
     'CONTROLLERS',
     require (path.join (__dirname, 'controllers'))
   )
+  
+
+  // fastify.decorate ('MODELS', require ('./models'))
+
+
+  console.log ('Connecting to mongoDB')
+
+  
+  mongoose.connect ('mongodb://0.0.0.0:27017/cashDash')
+  .then (() => console.log ('MongoDB connected'))
+  .catch (err => console.error ('MongoDB connection error:', err))
 
 }
