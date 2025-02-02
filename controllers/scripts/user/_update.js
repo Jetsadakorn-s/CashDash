@@ -1,7 +1,5 @@
 'use strict'
 
-const User = require('../../../database/models/_user')
-
 module.exports = async (request, reply) => {
 
   try {
@@ -10,10 +8,19 @@ module.exports = async (request, reply) => {
     const { name, phone, rate_discount, wallet } = request.body
 
 
-    const updatedUser = await User.findByIdAndUpdate(
+    const updatedUser = await request.MODELS.User.findByIdAndUpdate(
+
       id,
-      { name, phone, rate_discount, wallet },
+
+      { 
+        name, 
+        phone, 
+        rate_discount, 
+        wallet 
+      },
+
       { new: true }
+      
     )
 
 

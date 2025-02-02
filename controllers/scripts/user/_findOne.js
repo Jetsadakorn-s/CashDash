@@ -1,13 +1,11 @@
 'use strict'
 
-const User = require ('../../../database/models/_user')
-
 module.exports = async (request, reply) => {
 
   try {
 
     const { id } = request.params
-    const user = await User.findById (id)
+    const user = await request.MODELS.User.findById (id)
 
 
     if (!user) 

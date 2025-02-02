@@ -4,4 +4,6 @@ module.exports = {
   findAll: require ('./scripts/user/_findAll'),
   findOne: require ('./scripts/user/_findOne'),
   update: require ('./scripts/user/_update'),
+
+  updateWallet: require ('./scripts/user/wallet/_update')
 }

@@ -1,13 +1,11 @@
 'use strict'
 
-const User = require ('../../../database/models/_user')
-
 module.exports = async (request, reply) => {
 
   try {
 
     const { id } = request.params
-    const deletedUser = await User.findByIdAndDelete (id)
+    const deletedUser = await request.MODELS.User.findByIdAndDelete (id)
 
 
     if (!deletedUser) 

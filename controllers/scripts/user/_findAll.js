@@ -1,12 +1,10 @@
 'use strict'
 
-const User = require ('../../../database/models/_user')
-
 module.exports = async (request, reply) => {
 
   try {
 
-    const users = await User.find ()
+    const users = await request.MODELS.User.find ()
     return reply.send (users)
 
   } 
