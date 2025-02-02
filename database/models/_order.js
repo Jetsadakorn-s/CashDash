@@ -2,16 +2,16 @@ const mongoose = require ('mongoose')
 
 const OrderSchema = new mongoose.Schema ({
 
-  customerId: { 
+  user_id: { 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User', 
     required: true 
   },
   
-  productName: { type: String, required: true },
-  productPrice: { type: Number, required: true },
-  finalPrice: { type: Number, required: true },
-  createdAt: { type: Date, default: Date.now }
+  product_name: { type: String, required: true },
+  product_price: { type: Number, required: true },
+  final_price: { type: Number, required: true },
+  created_at: { type: Date, default: Date.now }
 
 })
 
