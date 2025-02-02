@@ -5,13 +5,18 @@ module.exports = async (request, reply) => {
   try {
 
     const { id } = request.params
-    const deletedUser = await request.MODELS.User.findByIdAndDelete (id)
 
 
-    if (!deletedUser) 
+    const user = await request.MODELS.User.findById (id)
+
+
+    if (!user) 
       return reply.code (404).send ({ error: 'User not found' })
 
 
+    await request.MODELS.Transaction.deleteMany ({ user_id: id })
+    await request.MODELS.Order.deleteMany ({ user_id: id })
+    await request.MODELS.User.findByIdAndDelete (id)
     return reply.send ({ message: 'User deleted' })
 
   } 
