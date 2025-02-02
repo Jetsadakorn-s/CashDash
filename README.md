@@ -15,7 +15,7 @@ CashDash is a financial transaction and digital wallet management system built u
 
 1️⃣ **Clone the repository**
 ```sh
-git clone https://gitlab.com/USERNAME/CashDash.git
+git clone https://gitlab.com/Jetsadakorn-s/cashdash.git
 cd CashDash
 ```
 
