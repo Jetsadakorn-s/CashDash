@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 
-CashDash is a financial transaction and digital wallet management system built using **Fastify** and **MongoDB** and **Docker**.
+CashDash is a financial transaction and digital wallet management system built using **Fastify** , **MongoDB** and **Docker**.
 
 ---
 
@@ -15,14 +15,13 @@ CashDash is a financial transaction and digital wallet management system built u
 
 1️⃣ **Clone the repository**
 ```sh
-git clone git@gitlab.com:Jetsadakorn-s/cashdash.git
-cd cashdash
-npm i
+git clone https://gitlab.com/USERNAME/CashDash.git
+cd CashDash
 ```
 
 2️⃣ **Run the project using `docker-compose`**
 ```sh
-npm run dev
+docker-compose up -d
 ```
 📌 This will start Fastify and MongoDB containers.
 
@@ -67,5 +66,23 @@ docker-compose down
 
 ---
 
-📌 **For further details, refer to the project repository.**
+## 📌 API Testing with Postman
 
+A **Postman Collection** is provided to simplify API testing.
+
+### Steps to Import and Use Postman Collection
+
+1️⃣ **Download the Postman Collection** from the repository:
+   - File: `docs/CashDash.postman_collection.json`
+
+2️⃣ **Open Postman** and go to **File → Import**
+
+3️⃣ **Select the JSON file** and import it
+
+4️⃣ **Test API requests directly in Postman**
+
+📌 This collection includes pre-configured API requests for easier testing.
+
+---
+
+📌 **For further details, refer to the project repository.**
