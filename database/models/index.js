@@ -8,8 +8,10 @@ const basename = path.basename (__filename)
 const db = {}
 
   
-mongoose.connect ('mongodb://mongo_db/cashDash')
-  .catch (err => console.error ('MongoDB connection error:', err))
+mongoose.connect (
+  process.env.MONGODB_URI 
+  || "mongodb://mongo_db/cashDash"
+).catch (err => console.error ('MongoDB connection error:', err))
 
 
 fs.readdirSync (__dirname)
