@@ -9,7 +9,6 @@ const db = {}
 
   
 mongoose.connect ('mongodb://mongo_db/cashDash')
-  .then (() => console.log ('MongoDB connected'))
   .catch (err => console.error ('MongoDB connection error:', err))
 
 
