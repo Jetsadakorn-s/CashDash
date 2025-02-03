@@ -1,6 +1,6 @@
 'use strict'
 
-const Bcrypt = require ('bcrypt')
+const Bcrypt = require ('bcryptjs')
 
 module.exports = async (request, reply) => {
 
@@ -17,10 +17,8 @@ module.exports = async (request, reply) => {
     } = request.body
       
 
-    const salt = Bcrypt.genSaltSync (10)
-    console.log ("salt: ", salt)
-    const passwordhash = Bcrypt.hashSync (password, salt)
-    console.log ("passwordhash: ", passwordhash)
+    const salt = await Bcrypt.genSalt (10)
+    const passwordhash = await Bcrypt.hash (password, salt)
 
 
     const user = await request.MODELS.User.create ({ 
@@ -32,7 +30,6 @@ module.exports = async (request, reply) => {
       wallet
     })
 
-    // await user.save ()
 
     return reply.code(201).send({ message: 'User created', user })
 
